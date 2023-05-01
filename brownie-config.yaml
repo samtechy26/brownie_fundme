@@ -1,7 +1,13 @@
 dependencies:
   # - <organization/repo>@<version>
   - smartcontractkit/chainlink-brownie-contracts@1.1.1
+dotenv: .env
+networks:
+  default: gnache-local
+  
 compiler:
   solc:
     remappings:
       - "@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1"
+account-keys:
+  private-keys: ${LOCAL_ADDRESS}
