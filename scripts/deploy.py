@@ -12,10 +12,13 @@ def deploy_mocks():
         MockV3Aggregator.deploy(DECIMALS, STARTING_PRICE, {"from": account})
     print("Mocks Deployed!")
 
-def main():
+def deploy_fund_me():
     account = accounts.add(config["account-keys"]["private-keys"])
     deploy_mocks()
     price_feed_address = MockV3Aggregator[-1].address
     fund_me = FundMe.deploy(price_feed_address, {"from":account})
     print(f"Contract deployed to {fund_me.address}")
+
+def main():
+    deploy_fund_me()
     
